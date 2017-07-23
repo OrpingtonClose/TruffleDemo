@@ -8,15 +8,17 @@
 //    > SimpleStorage.deployed().then(function(instance) { return instance.get(); })
 
 var SimpleStorage = artifacts.require("SimpleStorage");
-var account_one = "0xed9d02e382b34818e88b88a309c7fe71e65f419d"; // node1
-var account_four = "0x9186eb3d20cbd1f5f992a950d808c4495153abd5"; // node4  PubKey: oNspPPgszVUFw0qmGFfWwh1uxVUXgvBxleXORHj07g8=
+var account_one = "0xed9d02e382b34818e88b88a309c7fe71e65f419d"; // node1  TM PubKey BULeR8JyUWhiuuCMU/HLA0Q5pzkYT+cHII3ZKBey3Bo=  Refer to /quorum-examples/examples/7nodes/keys$
+var account_four = "0x9186eb3d20cbd1f5f992a950d808c4495153abd5"; // node4 TM PubKey: oNspPPgszVUFw0qmGFfWwh1uxVUXgvBxleXORHj07g8=
+var account_five = "0x0638e1574728b6d862dd5d3a3e0942c3be47d996"; // node5 TM PubKey: R56gy4dn24YOjwyesTczYa8m5xhP6hF2uTMCju/1xkY=
+// Someohow the demo lack of node 6 & 7 Keys and only TM Pub keys????
 var storageAcct;
 
 module.exports = function(done) {
     SimpleStorage.deployed().then(function(instance) {
         storageAcct = instance;
         console.log("Setting value to 10...");
-        return storageAcct.set(10, {from: account_one});  //from acct don't matter, all nodes will see it
+        return storageAcct.set(10, {from: account_one});
     }).then(function(result) {
         // If this callback is called, the transaction was successfully processed.
         console.log("Transaction:", result.tx);

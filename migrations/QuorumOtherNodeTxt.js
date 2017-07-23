@@ -7,6 +7,7 @@
 // 4. truffle console --network nodefour
 // 5. SimpleStorage.deployed().then(function(instance) { return instance.get(); })
 // Result { [String: '0'] s: 1, e: 0, c: [ 0 ] }
+
 var SimpleStorage = artifacts.require("SimpleStorage");
 
 module.exports = function(done) {
