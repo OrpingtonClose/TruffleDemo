@@ -51,7 +51,7 @@ function set (storeValue) {
     //var app = contractName.at("address")
     //Transaction: app.functionName(...)
     SimpleStorage.deployed().then(function(instance) {
-      return instance.set(storeValue, {privateFor: ["ROAZBWtSacxXQrOe3FGAqJDyJjFePR5ce4TSIzmJ0Bc="]});
+      return instance.set(storeValue, {privateFor: ["ROAZBWtSacxXQrOe3FGAqJDyJjFePR5ce4TSIzmJ0Bc="]}).then(console.log);
     }).catch(function(e) {
       console.log(e);
       console.warn("Error setting storage value; see log." + e);
@@ -60,7 +60,7 @@ function set (storeValue) {
 
   function get () { 
     SimpleStorage.deployed().then(function(instance) {
-       return instance.get();
+       return instance.get().then(console.log);
     }).catch(function(e) {
       console.log(e);
       console.warn("Error getting storage value; see log." + e);
@@ -70,4 +70,4 @@ function set (storeValue) {
   //setting value 5 to the SimpleStorage
 set(9);
 
-console.log("Retrieve StoredValue: " + get());
+get();
